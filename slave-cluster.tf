@@ -17,11 +17,7 @@ resource "aws_instance" "slave-cluster-node" {
     Name = "swarm"
   }
   security_groups = [ "http-ssh" ]
-  #user_data = "${file("init/slave-cluster-node.sh")}"
-  user_data = <<EOF
-#!/bin/bash
-echo ECS_CLUSTER=${aws_ecs_cluster.slave-cluster.name} >> /etc/ecs/ecs.config
-EOF
+  user_data = "${file("init/slave-cluster-node.sh")}"
   key_name = "control-keypair"
   iam_instance_profile = "${aws_iam_instance_profile.ingest.name}"
 }
