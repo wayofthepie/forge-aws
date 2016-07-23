@@ -1,12 +1,11 @@
 # Infrastructure Forge
-Automation of initial creation and state change of infrastructure for the
-following tools on AWS:
+Automation of initial creation and state change of infrastructure for the following tools on AWS:
 
 * Jenkins
     * ECS Docker cluster and related nodes for use with Jenkins
-    * Artifactory
-        * Amazon RDS DB (todo)
-            * ECS Docker cluster and related nodes for use with Artifactory
+* Artifactory
+    * Amazon RDS DB (todo)
+    * ECS Docker cluster and related nodes for use with Artifactory
 
 # Terraform Setup
 First, install 
@@ -24,8 +23,7 @@ aws_secret_access_key=****
 
 # Building
 ## Planning
-`terraform plan` generates an execution plan taking into account the current
-configuration and state.
+`terraform plan` generates an execution plan taking into account the current configuration and state.
 ```bash
 $ terraform plan
 Refreshing Terraform state prior to plan...
@@ -42,15 +40,13 @@ Note: You didn't specify an "-out" parameter to save this plan, so when
 + aws_ecs_cluster.slave-cluster
     name: "" => "slave-cluster"
 
-    + aws_ecs_cluster.tools-cluster
-        name: "" => "tools-cluster"
++ aws_ecs_cluster.tools-cluster
+    name: "" => "tools-cluster"
 
-        ...
-        ```
+...
+```
 ## Applying Changes
-        `terraform apply` builds out or changes infrastructure according to
-        Terraform configuration files in the given directory, defaults to the
-        directory it is run.
+`terraform apply` builds out or changes infrastructure according to Terraform configuration files in the given directory, defaults to the directory it is run.
 
 ## Destroy
 `terraform destroy` destroys managed infrastructure.
